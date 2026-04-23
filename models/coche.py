@@ -45,3 +45,14 @@ class Coche:
         print(f"Vehículo: {self.__marca} {self.__modelo} | Modelo: {self.__anio}")
         # Acceso directo al método del componente motor (Composición)
         print(f"Especificaciones: {self.__motor.obtener_info_motor()}")
+        
+    # --- Método acelerar para llamar la función amumentar velocidad ---
+    def acelerar(self):
+            try:            
+                self.velocidad = self.__motor.incrementar_velocidad()
+                print(f"la velocidad que incrementa es de: {self.velocidad}")
+    
+    # --- Captura de errores ---      
+            except ValueError as error:
+                print(f"error: {error}")
+    
