@@ -1,6 +1,6 @@
+#Esta es la forma de como se importan las clases al archivo principal
 from models.coche import Coche
 from models.motor import Motor # Importamos la nueva clase 
-#Esta es la forma de como se importan las clases al archivo principal
 from models.animal.Ave import Ave
 from models.animal.Gato import Gato
 from models.animal.Perro import Perro
