@@ -1,4 +1,4 @@
-from models.animal.interfaces.Volador import Volador
+from models.animal.Interfaces.Volador import Volador
 
 class Avion(Volador):
     def volar(self):
