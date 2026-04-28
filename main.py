@@ -4,7 +4,8 @@ from models.motor import Motor # Importamos la nueva clase
 from models.animal.Ave import Ave
 from models.animal.Gato import Gato
 from models.animal.Perro import Perro
-
+from models.animal.interfaces.Pajaro import Pajaro
+from models.animal.interfaces.Avion import Avion
 
 # 1. Primero creamos el motor [cite: 39]
 mi_motor_v8 = Motor(450, "V8", 300)
@@ -32,3 +33,9 @@ gato.set_hacersonido()
 ave = Ave()
 ave.set_hacersonido()
 
+print("\n--- PRUEBA PUNTO 8: INTERFACES ---")
+pajaro_test = Pajaro()
+avion_test = Avion()
+
+pajaro_test.volar()
+avion_test.volar()
