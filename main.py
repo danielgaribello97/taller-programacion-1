@@ -4,8 +4,8 @@ from models.motor import Motor # Importamos la nueva clase
 from models.animal.Ave import Ave
 from models.animal.Gato import Gato
 from models.animal.Perro import Perro
-from models.animal.interfaces.Pajaro import Pajaro
-from models.animal.interfaces.Avion import Avion
+from models.animal.Interfaces.Pajaro import Pajaro
+from models.animal.Interfaces.Avion import Avion
 
 # 1. Primero creamos el motor [cite: 39]
 mi_motor_v8 = Motor(450, "V8", 300)
