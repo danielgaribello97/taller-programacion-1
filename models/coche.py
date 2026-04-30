@@ -1,19 +1,20 @@
-class Coche:
+from models.Vehiculo import Vehiculo
+
+class Coche(Vehiculo): # Ahora hereda de Vehiculo[cite: 11]
     """
-    Clase base para la gestión de vehículos tipo coche.
-    Implementa validaciones de integridad y composición con la clase Motor.
+    Clase para la gestión de vehículos tipo coche.
+    Hereda de Vehiculo y utiliza composición con Motor[cite: 8, 9, 11].
     """
 
     def __init__(self, marca, modelo, anio, motor):
-        # Inicialización de atributos a través de setters para asegurar validación
+        # Inicialización en la clase padre[cite: 11]
+        super().__init__(marca, modelo)
+        
+        # Atributos específicos con validación
         self.set_marca(marca)
         self.set_modelo(modelo)
         self.set_anio(anio)
-        # Se establece la relación de composición con un objeto Motor
         self.__motor = motor 
-
-    # --- Métodos de Control de Acceso (Encapsulamiento) ---
-    # Se utilizan métodos públicos para gestionar atributos privados
 
     def set_marca(self, marca):
         self.__marca = marca
@@ -28,7 +29,6 @@ class Coche:
         return self.__modelo
 
     def set_anio(self, anio):
-        # Validación: Solo se permiten años desde la creación del primer auto
         if 1886 <= anio <= 2026:
             self.__anio = anio
         else:
@@ -38,21 +38,14 @@ class Coche:
     def get_anio(self):
         return self.__anio
 
-    # --- Métodos de Representación ---
-
     def describir(self):
-        """Imprime el estado actual del vehículo incluyendo su motorización."""
         print(f"Vehículo: {self.__marca} {self.__modelo} | Modelo: {self.__anio}")
-        # Acceso directo al método del componente motor (Composición)
         print(f"Especificaciones: {self.__motor.obtener_info_motor()}")
         
-    # --- Método acelerar para llamar la función amumentar velocidad ---
     def acelerar(self):
-            try:            
-                self.velocidad = self.__motor.incrementar_velocidad()
-                print(f"la velocidad que incrementa es de: {self.velocidad}")
-    
-    # --- Captura de errores ---      
-            except ValueError as error:
-                print(f"error: {error}")
-    
+        """Sobrescritura del método acelerar usando el motor (Ejercicio 5)[cite: 11]."""
+        try:            
+            self.velocidad = self.__motor.incrementar_velocidad()
+            print(f"La velocidad (Coche) incrementa a: {self.velocidad}")
+        except ValueError as error:
+            print(f"Error en motor: {error}")
